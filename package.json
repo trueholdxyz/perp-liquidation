@@ -1,0 +1,56 @@
+{
+  "name": "perp-liquidation",
+  "version": "0.1.0",
+  "description": "Liquidation prices for perpetual futures: one equation for isolated and cross margin, Hyperliquid margin tiers, Lighter partial and full liquidation. Checked against live positions.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "tsc -p tsconfig.json && node --test .out/test/",
+    "verify": "tsc -p tsconfig.json && node .out/scripts/verify-live.js",
+    "prepublishOnly": "npm run build && npm test",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "liquidation",
+    "liquidation-price",
+    "perpetual-futures",
+    "perps",
+    "hyperliquid",
+    "lighter",
+    "margin",
+    "crypto",
+    "defi",
+    "calculator"
+  ],
+  "homepage": "https://www.truehold.xyz/calculators/liquidation-price",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trueholdxyz/perp-liquidation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/trueholdxyz/perp-liquidation/issues"
+  },
+  "author": "TrueHold (https://www.truehold.xyz)",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "typescript": "^5.9.0"
+  }
+}
